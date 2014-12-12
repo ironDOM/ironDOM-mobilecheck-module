@@ -1,5 +1,5 @@
 var gulp            = require('gulp'),
-    // this is an arbitrary object that loads all gulp plugins in package.json. 
+    // this is an arbitrary object that loads all gulp plugins in package.json.
     $         = require("gulp-load-plugins")(),
     express   = require('express'),
     path      = require('path'),
@@ -8,7 +8,7 @@ var gulp            = require('gulp'),
     server    = tinylr();
 
 gulp.task('compass', function() {
-    gulp.src('./src/stylesheets/*.scss')
+    gulp.src('./src/stylesheets/**/*.scss')
         .pipe($.plumber())
         .pipe($.compass({
             css: 'dist/stylesheets',
@@ -29,6 +29,20 @@ gulp.task('coffee', function() {
     }))
     .pipe( $.rename('app.js') )
     .pipe( gulp.dest('dist/scripts') )
+    .pipe( $.livereload( server ) );
+});
+
+gulp.task('jslib', function() {
+  return gulp.src('src/scripts/*.js')
+    .pipe($.concat("irondom.js"))
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe( $.livereload( server ) );
+});
+
+gulp.task('js', function() {
+  return gulp.src('src/test/*.js')
+    .pipe($.concat("test.js"))
+    .pipe(gulp.dest('dist/scripts'))
     .pipe( $.livereload( server ) );
 });
 
@@ -59,14 +73,16 @@ gulp.task('watch', function () {
       return console.log(err);
     }
 
-    gulp.watch('src/stylesheets/*.scss',['compass']);
+    gulp.watch('src/stylesheets/**/*.scss',['compass']);
 
-    gulp.watch('src/scripts/*.coffee',['coffee']);
+    gulp.watch('src/scripts/**/*.js',['jslib']);
+
+    gulp.watch('src/test/**/*.js',['js']);
 
     gulp.watch('src/*.jade',['templates']);
-    
+
   });
 });
 
 // Default Task
-gulp.task('default', ['coffee','compass','templates', 'images', 'express','watch']);
+gulp.task('default', ['jslib', 'js','compass','templates', 'images', 'express','watch']);

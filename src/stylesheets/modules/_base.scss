@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  line-height: 1.4;
+  font-family: sans-serif;
+  background-color: lighten(#ccc, 10%);
+}
+
+.container {
+  max-width: 960px;
+  height: auto;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 3px;
+  margin: 0 auto;
+  padding: 35px;
+}

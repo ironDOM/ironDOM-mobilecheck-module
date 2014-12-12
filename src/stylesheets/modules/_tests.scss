@@ -1,0 +1,21 @@
+div.test {
+  padding: 1rem;
+  color: #fff;
+  background-color: #333;
+  button {
+    background-color: blue;
+    border: 0;
+    padding: .8rem;
+  }
+  li {
+    padding: .5rem;
+    margin-bottom: .5rem;
+    background-color: #ccc;
+    &.green {
+      background-color: green;
+    }
+    &.red {
+      background-color: red;
+    }
+  }
+}
