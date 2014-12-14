@@ -5,7 +5,14 @@ var gulp            = require('gulp'),
     path      = require('path'),
     tinylr    = require('tiny-lr'),
     app       = express(),
-    server    = tinylr();
+    server    = tinylr(),
+    deploy    = require('gulp-gh-pages');
+
+
+gulp.task('deploy', function () {
+  return gulp.src('./dist/**/*')
+    .pipe(deploy());
+});
 
 gulp.task('compass', function() {
     gulp.src('./src/stylesheets/**/*.scss')
