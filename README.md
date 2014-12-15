@@ -20,6 +20,10 @@ Browser support Mobile is:
 - Safari 3.2
 
 
+## Performance
+
+See performance in [performance.md](https://github.com/ironDOM/ironDOM-class-module/blob/master/performance.md)
+
 
 ## How to use
 
@@ -27,20 +31,34 @@ ironDOM class handler
 
 ### Create an selector:
 ```
-  var li = addClass = document.querySelector('.addClass'),
-      hasClass = document.querySelector('.hasClass'),
-      removeClass = document.querySelector('.removeClass'),
-      toggleClass = document.querySelector('.toggleClass');
+  var li = myAddClass = document.querySelector('.addClass'),
+      myHasClass = document.querySelector('.hasClass'),
+      myRemoveClass = document.querySelector('.removeClass'),
+      myToggleClass = document.querySelector('.toggleClass');
 ```
 
 ### Add an class handler:
 ```
-  ironDOM.hasClass(hasClass, 'hasClass');
-  ironDOM.addClass(addClass, 'green');
-  ironDOM.removeClass(removeClass, 'red');
+  ironDOM.hasClass(myHasClass, 'hasClass');
+  ironDOM.addClass(myAddClass, 'green');
+  ironDOM.removeClass(myRemoveClass, 'red');
   
   // ironDOM toggleclass with an onclick event
   document.querySelector('.test_toggleClass').onclick = function() {
-    ironDOM.toggleClass(toggleClass, 'green');
+    ironDOM.toggleClass(myToggleClass, 'green');
   }
+```
+
+### Add html
+```
+        // Add script
+        <script src="scripts/irondom.js"></script>
+        <button class="test_toggleClass">Test ironDOM.toggleClass()</button>
+        <ol>
+          <li class="addClass"> if the ironDOM.addClass is loaded this is green</li>
+          <li class="removeClass red"> if the ironDOM.removeClass is loaded this is green</li>
+          <li class="hasClass"> if the ironDOM.hasClass is loaded this is green</li>
+          <li class="toggleClass"> if the ironDOM.toggleClass is loaded this is green</li>
+        </ol>
+
 ```

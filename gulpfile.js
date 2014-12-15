@@ -34,7 +34,8 @@ gulp.task('speed-mobile', function (cb) {
       ' \n' +
       '- Url: ' + data.id + '\n' +
       '- Score: ' + data.score + '\n' +
-      '- Page stats: \n' +
+      '\n' +
+      '## Page stats: \n' +
       '- Number Resources: ' + data.pageStats.numberResources + '\n' +
       '- Total Request Bytes: ' + data.pageStats.totalRequestBytes + '\n' +
       '- Number Static Resources: ' + data.pageStats.numberStaticResources + '\n' +
@@ -83,7 +84,8 @@ gulp.task('speed-desktop', function (cb) {
       ' \n' +
       '- Url: ' + data.id + '\n' +
       '- Score: ' + data.score + '\n' +
-      '- Page stats: \n' +
+      '\n' +
+      '## Page stats: \n' +
       '- Number Resources: ' + data.pageStats.numberResources + '\n' +
       '- Total Request Bytes: ' + data.pageStats.totalRequestBytes + '\n' +
       '- Number Static Resources: ' + data.pageStats.numberStaticResources + '\n' +
