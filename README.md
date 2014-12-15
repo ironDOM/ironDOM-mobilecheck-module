@@ -3,6 +3,8 @@ ironDOM
 
 ironDom is an Micro JavaScript library for DOM manipulation. It has no dependencies.
 
+[Checkout the demo.](http://irondom.github.io/ironDOM-class-module)
+
 ## Browser Support
 ironDOM uses ES5 features.
 
@@ -27,7 +29,7 @@ See performance in [performance.md](https://github.com/ironDOM/ironDOM-class-mod
 
 ## How to use
 
-ironDOM class handler
+ironDOM class module
 
 ### Create an selector:
 ```
