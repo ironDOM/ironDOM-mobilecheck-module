@@ -1,25 +1,32 @@
 (function (window, document, ironDOM, undefined) {
   'use strict';
 
-  var li = document.querySelector('li'),
-      addClass = document.querySelector('.addClass'),
-      hasClass = document.querySelector('.hasClass'),
-      removeClass = document.querySelector('.removeClass'),
-      toggleClass = document.querySelector('.toggleClass');
+  var listItem = document.querySelectorAll('li'),
+      myaddClassElem = document.querySelector('.addClass'),
+      myhasClassElem = document.querySelector('.hasClass'),
+      myremoveClassElem = document.querySelector('.removeClass'),
+      mytoggleClassElem = document.querySelector('.toggleClass'),
+      myButton = document.querySelector('.test_toggleClass');
 
-  ironDOM.addClass(addClass, 'green');
-  ironDOM.addClass(toggleClass, 'green');
-  if(ironDOM.hasClass(hasClass, 'hasClass')) {
-    ironDOM.addClass(hasClass, 'green');
-  }
-  if(ironDOM.hasClass(removeClass, 'red')) {
-    ironDOM.removeClass(removeClass, 'red');
-    ironDOM.addClass(removeClass, 'green');
-  }
+  ironDOM.addClass(listItem, ['blue','grey']);
+  //var i, j;
+  //for(i = 0; i < listItem.length; i++) {
+  //  console.log('been there');
+  //  console.log('been there to');
+  //}
 
-  document.querySelector('.test_toggleClass').onclick = function() {
-    ironDOM.toggleClass(toggleClass, 'green');
-  }
+  //ironDOM.addClass(myaddClassElem, 'green');
+  //if(ironDOM.hasClass(myhasClassElem, 'hasClass')) {
+  //  ironDOM.addClass(myhasClassElem, 'green');
+  //}
+  //if(ironDOM.hasClass(myremoveClassElem, 'red')) {
+  //  ironDOM.removeClass(myremoveClassElem, 'red');
+  //  ironDOM.addClass(myremoveClassElem, 'green');
+  //}
+  //
+  //myButton.onclick = function() {
+  //  ironDOM.toggleClass(mytoggleClassElem, 'green');
+  //}
 
 })(window, document, ironDOM);
 
