@@ -1,24 +1,7 @@
-//var bg = document.querySelector('#twitterController'),
-//  button = document.querySelector('.fireme');
-//
-//// kDom.addClass(bg, 'found');
-//
-//function myFunction() {
-//  kDom.toggleClass(bg, 'found');
-//}
-//button.addEventListener('click', myFunction);
-//
-//if ( 'querySelector' in document && 'addEventListener' in window ) {
-//  console.log('querySelector' in document);
-//  console.log('addEventListener' in window);
-//}
-
-
-
-(function (window, document, undefined) {
+(function (window, document, ironDOM, undefined) {
   'use strict';
 
-  var li = document.querySelectorAll('li'),
+  var li = document.querySelector('li'),
       addClass = document.querySelector('.addClass'),
       hasClass = document.querySelector('.hasClass'),
       removeClass = document.querySelector('.removeClass'),
@@ -30,7 +13,6 @@
     ironDOM.addClass(hasClass, 'green');
   }
   if(ironDOM.hasClass(removeClass, 'red')) {
-    console.log('hasRed');
     ironDOM.removeClass(removeClass, 'red');
     ironDOM.addClass(removeClass, 'green');
   }
@@ -39,6 +21,6 @@
     ironDOM.toggleClass(toggleClass, 'green');
   }
 
-})(window, document);
+})(window, document, ironDOM);
 
 

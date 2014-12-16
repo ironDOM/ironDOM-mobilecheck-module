@@ -1,17 +1,7 @@
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory;
-  } else {
-    root.MYMODULE = factory();
-  }
-})(this, function () {
+var ironDOM = (function (ironDOM)  {
   'use strict';
 
-  var ironDOM = {};
-
-  var hasClass, addClass;
+  var ironDOMclassModule = {};
 
   ironDOM.hasClass = function(element, className) {
     return new RegExp(' ' + className + ' ').test(' ' + element.className + ' ');
@@ -45,6 +35,6 @@
     }
   };
 
-  window.ironDOM = ironDOM;
-  //return ironDOM;
-});
+  //window.ironDOM = ironDOM;
+  return ironDOM;
+}(ironDOM || {}));

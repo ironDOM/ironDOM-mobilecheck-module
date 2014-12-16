@@ -10,6 +10,8 @@ var gulp      = require('gulp'),
     fs        = require('fs'),
     moment    = require('moment'),
     mkdirp = require('mkdirp'),
+    cssshrink = require('gulp-cssshrink'),
+    minifyCSS = require('gulp-minify-css'),
     psisite = 'http://irondom.github.io/ironDOM-class-module/';
 
 var year = moment().get('year'),
@@ -125,22 +127,9 @@ gulp.task('compass', function() {
             css: 'dist/stylesheets',
             sass: 'src/stylesheets'
         }))
+        .pipe(cssshrink())
         .pipe(gulp.dest('dist/stylesheets'))
         .pipe( $.livereload( server ));
-});
-
-gulp.task('coffee', function() {
-  return gulp.src('src/scripts/main.coffee', { read: false })
-    .pipe($.plumber())
-    .pipe($.browserify({
-      debug: true,
-      insertGlobals: false,
-      transform: ['coffeeify'],
-      extensions: ['.coffee']
-    }))
-    .pipe( $.rename('app.js') )
-    .pipe( gulp.dest('dist/scripts') )
-    .pipe( $.livereload( server ) );
 });
 
 gulp.task('jslib', function() {
@@ -160,6 +149,7 @@ gulp.task('js', function() {
 gulp.task('images', function() {
   return gulp.src('./src/images/*')
     .pipe(gulp.dest('./dist/images'))
+    .pipe( $.livereload( server ));
 })
 
 gulp.task('templates', function() {
