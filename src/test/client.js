@@ -2,31 +2,19 @@
   'use strict';
 
   var listItem = document.querySelectorAll('li'),
-      myaddClassElem = document.querySelector('.addClass'),
-      myhasClassElem = document.querySelector('.hasClass'),
-      myremoveClassElem = document.querySelector('.removeClass'),
-      mytoggleClassElem = document.querySelector('.toggleClass'),
-      myButton = document.querySelector('.test_toggleClass');
+      mytoggleClassElem = document.querySelectorAll('.toggleClass'),
+      myButton = document.querySelectorAll('#test_toggleClass');
 
-  ironDOM.addClass(listItem, ['blue','grey']);
-  //var i, j;
-  //for(i = 0; i < listItem.length; i++) {
-  //  console.log('been there');
-  //  console.log('been there to');
-  //}
+  ironDOM.addClass(listItem, ['ironDOM', 'nice', 'ironDOM', 'nice']);
+  console.log(ironDOM.hasClass(listItem, ['addClass']));
+  if(ironDOM.hasClass(listItem, ['addClass'])) {
+    ironDOM.removeClass(listItem, ['red']);
+    ironDOM.addClass(listItem, ['green']);
+  }
 
-  //ironDOM.addClass(myaddClassElem, 'green');
-  //if(ironDOM.hasClass(myhasClassElem, 'hasClass')) {
-  //  ironDOM.addClass(myhasClassElem, 'green');
-  //}
-  //if(ironDOM.hasClass(myremoveClassElem, 'red')) {
-  //  ironDOM.removeClass(myremoveClassElem, 'red');
-  //  ironDOM.addClass(myremoveClassElem, 'green');
-  //}
-  //
-  //myButton.onclick = function() {
-  //  ironDOM.toggleClass(mytoggleClassElem, 'green');
-  //}
+  myButton.onclick = function() {
+    ironDOM.toggleClass(mytoggleClassElem, ['blue']);
+  }
 
 })(window, document, ironDOM);
 

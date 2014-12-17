@@ -4,8 +4,6 @@ var ironDOM = (function (ironDOM)  {
   var hasClass, addClass, removeClass, toggleClass;
 
   var forEach = function(element, classes, functionName) {
-    console.log(classes.join().replace(',', ' '));
-    console.log(element);
     if(typeof element === 'object') {
       for (var i = 0; i < element.length; i++) {
         for (var j = 0; j < classes.length; j++) {
@@ -18,8 +16,13 @@ var ironDOM = (function (ironDOM)  {
   }
 
   if ('classList' in document.documentElement) {
-    hasClass = function(element, className){
-      return element.classList.contains(className);
+    hasClass = function(element, classes){
+      for (var i = 0; i < element.length; i++) {
+        for (var j = 0; j < classes.length; j++) {
+          console.log(element.item(i));
+          return element.item(i).classList.contains(classes);
+        }
+      }
     };
 
     addClass = function(element, className) {
@@ -37,6 +40,7 @@ var ironDOM = (function (ironDOM)  {
 
   ironDOM.hasClass = function(element, className) {
     return hasClass(element, className);
+    //forEach(element, classes, hasClass);
   };
 
   ironDOM.addClass = function(element, classes) {
@@ -44,16 +48,11 @@ var ironDOM = (function (ironDOM)  {
   };
 
   ironDOM.removeClass = function(element, classes) {
-    forEach(classes, function(className) {
-      removeClass(element, className);
-    });
-
+    forEach(element, classes, removeClass);
   };
 
   ironDOM.toggleClass = function(element, classes) {
-    forEach(classes, function(className) {
-      toggleClass(element, className);
-    });
+    forEach(element, classes, toggleClass);
   };
 
   return ironDOM;

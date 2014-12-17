@@ -23,20 +23,20 @@ html.no-js
 
           **ironDOM** is an JavaScript microlibrary for DOM manipulation by [Raymon Schouwenaar](https://twitter.com/rsschouwenaar)
 
-          This is the testing page of **ironDOM**
+          This is the testing page of **ironDOM class module**
 
       div.test
-        h2 Testing ironDOM
-        button.test_toggleClass Test ironDOM.toggleClass()
+        h2 Testing ironDOM class module
+        button#test_toggleClass Test ironDOM.toggleClass()
         ol
-          li.addClass  if the ironDOM.addClass is loaded this is green
+          li.addClass.red  if the ironDOM.addClass is loaded this is green
           li.removeClass.red  if the ironDOM.removeClass is loaded this is green
-          li.hasClass  if the ironDOM.hasClass is loaded this is green
-          li.toggleClass  if the ironDOM.toggleClass is loaded this is green
-          li.addClass  if the ironDOM.addClass is loaded this is green
+          li.hasClass.red  if the ironDOM.hasClass is loaded this is green
+          li.toggleClass.red  if the ironDOM.toggleClass is loaded this is green
+          li.addClass.red  if the ironDOM.addClass is loaded this is green
           li.removeClass.red  if the ironDOM.removeClass is loaded this is green
-          li.hasClass  if the ironDOM.hasClass is loaded this is green
-          li.toggleClass  if the ironDOM.toggleClass is loaded this is green
+          li.hasClass.red  if the ironDOM.hasClass is loaded this is green
+          li.toggleClass.red  if the ironDOM.toggleClass is loaded this is green
 
   script(src="scripts/irondom.js")
   script(src="scripts/test.js")

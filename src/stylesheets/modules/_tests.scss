@@ -20,5 +20,8 @@ div.test {
     &.blue {
       background-color: blue;
     }
+    &.ironDOM {
+      border: 4px dotted #333;
+    }
   }
 }
