@@ -1,4 +1,4 @@
-var ironDOM = (function (ironDOM)  {
+var ironDOM = (function ()  {
   'use strict';
 
   var ironDOM = {},
@@ -59,4 +59,4 @@ var ironDOM = (function (ironDOM)  {
 
   //window.ironDOM = ironDOM;
   return ironDOM;
-}(ironDOM || {}));
+}());

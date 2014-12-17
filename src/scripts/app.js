@@ -1,8 +1,7 @@
 var ironDOM = (function (ironDOM)  {
   'use strict';
 
-  var ironDOM = {},
-      hasClass, addClass, removeClass, toggleClass;
+  var hasClass, addClass, removeClass, toggleClass;
 
   var forEach = function(element, classes, functionName) {
     console.log(classes.join().replace(',', ' '));
@@ -57,6 +56,5 @@ var ironDOM = (function (ironDOM)  {
     });
   };
 
-  //window.ironDOM = ironDOM;
   return ironDOM;
 }(ironDOM || {}));
