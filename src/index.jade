@@ -3,7 +3,7 @@ html.no-js
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title ironDOM | JavaScript microlibrary for DOM manipulation
+    title ironDOM.js class module | JavaScript microlibrary for DOM manipulation
     meta(name='description', content='ironDOM is an JavaScript microlibrary for DOM manipulation')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel="stylesheet", href="stylesheets/main.css")
@@ -19,7 +19,7 @@ html.no-js
 
       div.content
         :markdown
-          # ironDOM.js
+          # ironDOM.js class module
 
           **ironDOM** is an JavaScript microlibrary for DOM manipulation by [Raymon Schouwenaar](https://twitter.com/rsschouwenaar)
 
@@ -27,16 +27,20 @@ html.no-js
 
       div.test
         h2 Testing ironDOM class module
-        button#button Test ironDOM.toggleClass()
+        button#button #toggleClass
+        button#button2 .toggleClass
+        button#button3 Hide/Show with toggleClass()
+
         ol
-          li.addClass.red  if the ironDOM.addClass is loaded this is green
-          li.removeClass.red  if the ironDOM.removeClass is loaded this is green
-          li.hasClass.red  if the ironDOM.hasClass is loaded this is green
-          li.toggleClass.red  if the ironDOM.toggleClass is loaded this is green
-          li.addClass.red  if the ironDOM.addClass is loaded this is green
-          li.removeClass.red  if the ironDOM.removeClass is loaded this is green
-          li.hasClass.red  if the ironDOM.hasClass is loaded this is green
-          li.toggleClass.red  if the ironDOM.toggleClass is loaded this is green
+          li.toggleClass.red  .toggleClass
+          li.addClass.red .addClass
+          li.removeClass.red  .removeClass
+          li.hasClass.red  .hasClass
+          li#toggleClass.red  #toggleClass
+          li.addClass.red  .addClass
+          li.removeClass.red  .removeClass
+          li.hasClass.red  .hasClass
+          li.toggleClass.red  .toggleClass
 
   script(src="scripts/irondom.js")
   script(src="scripts/test.js")

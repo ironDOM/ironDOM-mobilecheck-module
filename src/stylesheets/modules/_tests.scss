@@ -1,27 +1,39 @@
+$color_density: 15%;
 div.test {
   padding: 1rem;
   color: #fff;
   background-color: #333;
   button {
-    background-color: blue;
+    background-color: #ccc;
     border: 0;
+    color: #333;
     padding: .8rem;
+    &:focus {
+      outline: 1px lighten(green, $color_density);
+      box-shadow: 0 0 10px lighten(green, $color_density);
+    }
+  }
+  ol {
+    padding: 0;
+    transition: 0.5s ease-in-out;
   }
   li {
     padding: .5rem;
     margin-bottom: .5rem;
     background-color: #ccc;
+    display: none;
+    transition: 0.5s ease-in-out;
     &.green {
-      background-color: green;
+      background-color: lighten(green, $color_density);
     }
     &.red {
-      background-color: red;
+      background-color: lighten(red, $color_density);
     }
     &.blue {
-      background-color: blue;
+      background-color: lighten(blue, $color_density);
     }
     &.ironDOM {
-      border: 4px dotted #333;
+      display: block;
     }
   }
 }

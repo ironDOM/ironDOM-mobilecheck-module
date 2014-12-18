@@ -4,7 +4,11 @@ var ironDOM = (function (ironDOM)  {
   var hasClass, addClass, removeClass, toggleClass;
 
   var forEach = function(element, classes, functionName) {
-    if(typeof element === 'object') {
+    //console.log('element: ', element);
+    //console.log('classes: ', classes);
+    //console.log('functionName: ', functionName);
+
+    if(typeof element === 'object' && element !== '') {
       var j;
       for (j = 0; j < classes.length; j++) {
         functionName(element, classes[j]);

@@ -9,18 +9,12 @@ ironDom is an Micro JavaScript library for DOM manipulation. It has no dependenc
 ironDOM uses ES5 features.
 
 Browser support Desktop is:
-- IE8 and higher
-- Firefox 3.5 and higher
-- Chrome 1 and higher
+- IE10 and higher
+- Firefox 34 and higher
+- Chrome 39 and higher
+- Chromium 41 and higher
 - Safari 3.2 and higher
 - Opera 10 and higher
-
-Browser support Mobile is:
-- Android 2.1
-- Firefox all
-- IE10
-- Safari 3.2
-
 
 ## Performance
 
