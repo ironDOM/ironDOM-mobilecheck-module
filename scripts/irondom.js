@@ -5,23 +5,21 @@ var ironDOM = (function (ironDOM)  {
 
   var forEach = function(element, classes, functionName) {
     if(typeof element === 'object') {
-      for (var i = 0; i < element.length; i++) {
-        for (var j = 0; j < classes.length; j++) {
-          functionName(element.item(i), classes[j]);
-        }
+      var j;
+      for (j = 0; j < classes.length; j++) {
+        functionName(element, classes[j]);
       }
     } else {
+      console.log('else');
       functionName(element, classes.join().split(','));
     }
   }
 
   if ('classList' in document.documentElement) {
     hasClass = function(element, classes){
-      for (var i = 0; i < element.length; i++) {
-        for (var j = 0; j < classes.length; j++) {
-          console.log(element.item(i));
-          return element.item(i).classList.contains(classes);
-        }
+      var j;
+      for (j = 0; j < classes.length; j++) {
+        return element.classList.contains(classes[j]);
       }
     };
 
@@ -53,6 +51,13 @@ var ironDOM = (function (ironDOM)  {
 
   ironDOM.toggleClass = function(element, classes) {
     forEach(element, classes, toggleClass);
+  };
+
+  ironDOM.multiElements = function(elements, callback) {
+    var i;
+    for (i = 0; i < elements.length; ++i) {
+      callback.call(elements[i]);
+    }
   };
 
   return ironDOM;
