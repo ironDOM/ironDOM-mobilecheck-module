@@ -1,0 +1,24 @@
+# Peformance results of 2014-11-19-T9-8-5: 
+ 
+- Url: http://irondom.github.io/ironDOM-class-module/
+- Score: 96
+
+## Page stats: 
+- Number Resources: 4
+- Total Request Bytes: 293
+- Number Static Resources: 3
+- HTML Response Bytes: 2388 bytes 
+- CSS Response Bytes: 3236 bytes 
+- JavaScript Response Bytes: 4217 bytes 
+- Number JavaScript Resources: 2
+- Number CSS Resources: 1
+- Avoid Landing Page Redirects: 0
+- Enable Gzip Compression: 0
+- Leverage Browser Caching: 1.4985119047619047
+- Main Resource Server Response Time: 0
+- Minify CSS: 0
+- Minify HTML: 0
+- Minify JavaScript: 0
+- MinimizeRenderBlockingResources: 2
+- Optimize Images: 0
+- Prioritize Visible Content: 0
