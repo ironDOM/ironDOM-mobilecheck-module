@@ -1,25 +1,54 @@
 (function (window, document, ironDOM, undefined) {
   'use strict';
 
-  var li = document.querySelector('li'),
-      addClass = document.querySelector('.addClass'),
-      hasClass = document.querySelector('.hasClass'),
-      removeClass = document.querySelector('.removeClass'),
-      toggleClass = document.querySelector('.toggleClass');
+  var listItem = document.querySelector('li'),
+      listItems = document.querySelectorAll('li'),
+      mytoggleIDelem = document.querySelector('#toggleClass'),
+      mytoggleClassElem = document.querySelectorAll('.toggleClass'),
+      myButton = document.querySelector('#button'),
+      myButton2 = document.querySelector('#button2'),
+      myButton3 = document.querySelector('#button3');
 
-  ironDOM.addClass(addClass, 'green');
-  ironDOM.addClass(toggleClass, 'green');
-  if(ironDOM.hasClass(hasClass, 'hasClass')) {
-    ironDOM.addClass(hasClass, 'green');
-  }
-  if(ironDOM.hasClass(removeClass, 'red')) {
-    ironDOM.removeClass(removeClass, 'red');
-    ironDOM.addClass(removeClass, 'green');
-  }
 
-  document.querySelector('.test_toggleClass').onclick = function() {
-    ironDOM.toggleClass(toggleClass, 'green');
-  }
+  myButton.addEventListener("click", function() {
+    ironDOM.toggleClass(mytoggleIDelem, ['green']);
+    ironDOM.toggleClass(mytoggleIDelem, ['red']);
+  });
+  myButton2.addEventListener("click", function() {
+    ironDOM.multiElements(mytoggleClassElem, function () {
+      ironDOM.toggleClass(this, ['green']);
+      ironDOM.toggleClass(this, ['red']);
+    });
+  });
+  myButton3.addEventListener("click", function() {
+    ironDOM.multiElements(listItems, function () {
+      ironDOM.toggleClass(this, ['ironDOM']);
+    });
+  });
+
+
+  ironDOM.multiElements(listItems, function () {
+
+    ironDOM.addClass(this, ['ironDOM']);
+
+    if(ironDOM.hasClass(this, ['addClass'])) {
+
+      ironDOM.removeClass(this, ['red']);
+      ironDOM.addClass(this, ['green']);
+
+    } else if (ironDOM.hasClass(this, ['removeClass'])) {
+
+      ironDOM.removeClass(this, ['red']);
+      ironDOM.addClass(this, ['green']);
+
+    } else if (ironDOM.hasClass(this, ['hasClass'])) {
+
+      ironDOM.removeClass(this, ['red']);
+      ironDOM.addClass(this, ['green']);
+
+    }
+  });
+
 
 })(window, document, ironDOM);
 

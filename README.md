@@ -9,58 +9,115 @@ ironDom is an Micro JavaScript library for DOM manipulation. It has no dependenc
 ironDOM uses ES5 features.
 
 Browser support Desktop is:
-- IE8 and higher
-- Firefox 3.5 and higher
-- Chrome 1 and higher
-- Safari 3.2 and higher
-- Opera 10 and higher
-
-Browser support Mobile is:
-- Android 2.1
-- Firefox all
-- IE10
-- Safari 3.2
-
+- IE10 and higher
+- Firefox 34 and higher
+- Chrome 39 and higher
+- Chromium 41 and higher
+- Safari 5 and higher
+- Opera 12.17 and higher
 
 ## Performance
 
 See performance in [performance.md](https://github.com/ironDOM/ironDOM-class-module/blob/master/performance.md)
 
 
-## How to use
-
-ironDOM class module
-
-### Create an selector:
-```
-  var li = myAddClass = document.querySelector('.addClass'),
-      myHasClass = document.querySelector('.hasClass'),
-      myRemoveClass = document.querySelector('.removeClass'),
-      myToggleClass = document.querySelector('.toggleClass');
-```
-
-### Add an class handler:
-```
-  ironDOM.hasClass(myHasClass, 'hasClass');
-  ironDOM.addClass(myAddClass, 'green');
-  ironDOM.removeClass(myRemoveClass, 'red');
-  
-  // ironDOM toggleclass with an onclick event
-  document.querySelector('.test_toggleClass').onclick = function() {
-    ironDOM.toggleClass(myToggleClass, 'green');
-  }
-```
+## How to use ironDOM class module
 
 ### Add html
 ```
-        // Add script
-        <script src="scripts/irondom.js"></script>
-        <button class="test_toggleClass">Test ironDOM.toggleClass()</button>
-        <ol>
-          <li class="addClass"> if the ironDOM.addClass is loaded this is green</li>
-          <li class="removeClass red"> if the ironDOM.removeClass is loaded this is green</li>
-          <li class="hasClass"> if the ironDOM.hasClass is loaded this is green</li>
-          <li class="toggleClass"> if the ironDOM.toggleClass is loaded this is green</li>
-        </ol>
+  // Add script
+        
+  <div class="test">
+    <h2>Testing ironDOM class module</h2>
+    <button id="button">#toggleClass</button>
+    <button id="button2">.toggleClass</button>
+    <button id="button3">Hide/Show with toggleClass()</button>
+    <ol>
+      <li class="toggleClass red"> .toggleClass</li>
+      <li class="addClass red">.addClass</li>
+      <li class="removeClass red"> .removeClass</li>
+      <li class="hasClass red"> .hasClass</li>
+      <li id="toggleClass" class="red"> #toggleClass</li>
+      <li class="addClass red"> .addClass</li>
+      <li class="removeClass red"> .removeClass</li>
+      <li class="hasClass red"> .hasClass</li>
+      <li class="toggleClass red"> .toggleClass</li>
+    </ol>
+  </div>
+  
+  <script src="scripts/irondom.js"></script>
+  <script src="scripts/yourscript.js"></script>
+  
+```
+
+### Add this to a javascript file
+```
+
+  (function (window, document, ironDOM, undefined) {
+    'use strict';
+  
+    var listItem = document.querySelector('li'),
+        listItems = document.querySelectorAll('li'),
+        mytoggleIDelem = document.querySelector('#toggleClass'),
+        mytoggleClassElem = document.querySelectorAll('.toggleClass'),
+        myButton = document.querySelector('#button'),
+        myButton2 = document.querySelector('#button2'),
+        myButton3 = document.querySelector('#button3');
+  
+  
+    myButton.addEventListener("click", function() {
+      ironDOM.toggleClass(mytoggleIDelem, ['green']);
+      ironDOM.toggleClass(mytoggleIDelem, ['red']);
+    });
+    myButton2.addEventListener("click", function() {
+      ironDOM.multiElements(mytoggleClassElem, function () {
+        ironDOM.toggleClass(this, ['green']);
+        ironDOM.toggleClass(this, ['red']);
+      });
+    });
+    myButton3.addEventListener("click", function() {
+      ironDOM.multiElements(listItems, function () {
+        ironDOM.toggleClass(this, ['ironDOM']);
+      });
+    });
+  
+  
+    ironDOM.multiElements(listItems, function () {
+  
+      ironDOM.addClass(this, ['ironDOM']);
+  
+      if(ironDOM.hasClass(this, ['addClass'])) {
+  
+        ironDOM.removeClass(this, ['red']);
+        ironDOM.addClass(this, ['green']);
+  
+      } else if (ironDOM.hasClass(this, ['removeClass'])) {
+  
+        ironDOM.removeClass(this, ['red']);
+        ironDOM.addClass(this, ['green']);
+  
+      } else if (ironDOM.hasClass(this, ['hasClass'])) {
+  
+        ironDOM.removeClass(this, ['red']);
+        ironDOM.addClass(this, ['green']);
+  
+      }
+    });
+  
+  
+  })(window, document, ironDOM);
+
 
 ```
+
+You could also check the [Dist folder for an example](https://github.com/ironDOM/ironDOM-class-module/tree/master/dist)! 
+
+
+## Documentation
+
+ironDOM class module has a few methods
+
+### ironDOM.addClass
+
+You can add a 1 class to 1 element
+`ironDOM.addClass(element, ['className']);`
