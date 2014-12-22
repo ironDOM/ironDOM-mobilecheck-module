@@ -121,3 +121,14 @@ ironDOM class module has a few methods
 
 You can add a 1 class to 1 element
 `ironDOM.addClass(element, ['className']);`
+
+You can add 1 or multiple classes to multiple elements
+```
+
+    ironDOM.multiElements(listItems, function () {
+  
+      ironDOM.addClass(this, ['ironDOM', 'otherClass']);
+    
+    });
+
+```
