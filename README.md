@@ -119,16 +119,97 @@ ironDOM class module has a few methods
 
 ### ironDOM.addClass
 
-You can add a 1 class to 1 element
-`ironDOM.addClass(element, ['className']);`
+You can add 1 class to 1 element
+```
+
+    element = document.querySelector('div');
+    ironDOM.addClass(element, ['className']);
+
+```
 
 You can add 1 or multiple classes to multiple elements
 ```
-
+    
+    listItems = document.querySelectorAll('li');
     ironDOM.multiElements(listItems, function () {
   
       ironDOM.addClass(this, ['ironDOM', 'otherClass']);
     
+    });
+
+```
+
+### ironDOM.removeClass
+
+You can remove 1 class to 1 element
+```
+
+    element = document.querySelector('div');
+    ironDOM.removeClass(element, ['className']);
+
+```
+You can remove 1 or multiple classes from multiple elements
+```
+    
+    listItems = document.querySelectorAll('li');
+    ironDOM.multiElements(listItems, function () {
+  
+      ironDOM.removeClass(this, ['ironDOM', 'otherClass']);
+    
+    });
+
+```
+
+
+### ironDOM.hassClass
+
+You can check if an element has 1 class
+```
+
+    element = document.querySelector('div');
+    ironDOM.hassClass(element, ['className']);
+
+```
+
+You can check if multiple elements has a class
+```
+    
+    listItems = document.querySelectorAll('li');
+    ironDOM.multiElements(listItems, function () {
+  
+      ironDOM.removeClass(this, ['ironDOM']);
+    
+    });
+
+```
+
+
+### ironDOM.toggleClass
+
+You can toggle 1 class of 1 element
+
+```
+
+    element = document.querySelector('div'),
+    myButton = document.querySelector('#button');
+    
+    myButton.addEventListener("click", function() {
+      ironDOM.toggleClass(element, ['ironDOM']);
+    });
+
+```
+
+You can toggle 1 class of multiple elements
+
+```
+
+    listItems = document.querySelectorAll('li'),
+    myButton = document.querySelector('#button');
+    
+    myButton.addEventListener("click", function() {
+      ironDOM.multiElements(listItems, function () {
+        ironDOM.toggleClass(element, ['ironDOM']);
+      });
     });
 
 ```

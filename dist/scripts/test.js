@@ -26,7 +26,6 @@
     });
   });
 
-
   ironDOM.multiElements(listItems, function () {
 
     ironDOM.addClass(this, ['ironDOM']);

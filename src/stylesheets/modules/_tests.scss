@@ -35,5 +35,8 @@ div.test {
     &.ironDOM {
       display: block;
     }
+    &.testing {
+      border: 1px red solid;
+    }
   }
 }
